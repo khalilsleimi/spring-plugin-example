@@ -1,4 +1,4 @@
-package com.vneuron.springplugins.classloader;
+package com.vneuron.springplugins.app.classloader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;

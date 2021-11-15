@@ -1,4 +1,4 @@
-package com.vneuron.springplugins.controller;
+package com.vneuron.springplugins.app.controller;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,6 +1,7 @@
-package com.vneuron.springplugins;
+package com.vneuron.springplugins.app;
 
-import com.vneuron.springplugins.classloader.PluginClassloader;
+import com.vneuron.springplugins.api.WriterPlugin;
+import com.vneuron.springplugins.app.classloader.PluginClassloader;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

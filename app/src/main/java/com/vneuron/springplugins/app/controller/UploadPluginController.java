@@ -1,4 +1,4 @@
-package com.vneuron.springplugins.controller;
+package com.vneuron.springplugins.app.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import com.vneuron.springplugins.SpringPluginsApplication;
+import com.vneuron.springplugins.app.SpringPluginsApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import com.vneuron.springplugins.classloader.PluginClassloader;
+import com.vneuron.springplugins.app.classloader.PluginClassloader;
 
 @Controller
 @RequestMapping("/plugins")

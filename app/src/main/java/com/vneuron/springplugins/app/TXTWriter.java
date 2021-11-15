@@ -1,5 +1,6 @@
-package com.vneuron.springplugins;
+package com.vneuron.springplugins.app;
 
+import com.vneuron.springplugins.api.WriterPlugin;
 import org.springframework.stereotype.Component;
 
 @Component
