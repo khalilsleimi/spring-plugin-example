@@ -1,9 +1,13 @@
 package com.vneuron.springplugins;
 
+import com.vneuron.springplugins.classloader.PluginClassloader;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.plugin.core.config.EnablePluginRegistries;
 
@@ -11,8 +15,13 @@ import org.springframework.plugin.core.config.EnablePluginRegistries;
 @EnablePluginRegistries(WriterPlugin.class)
 public class SpringPluginsApplication {
 
+    private static ConfigurableApplicationContext context;
+
     public static void main(String[] args) {
-        SpringApplication.run(SpringPluginsApplication.class, args);
+        PluginClassloader classLoader = new PluginClassloader("plugins", Thread.currentThread().getContextClassLoader());
+        SpringApplication app = new SpringApplication(SpringPluginsApplication.class);
+        app.setResourceLoader(new DefaultResourceLoader(classLoader));
+        context = app.run(args);
     }
 
     @Bean
@@ -21,6 +30,18 @@ public class SpringPluginsApplication {
             for (var format : "csv,txt".split(","))
                 plugins.getPluginFor(format).get().write("Hello, Spring Plugin!");
         };
+    }
+
+    public static void restart() {
+        ApplicationArguments args = context.getBean(ApplicationArguments.class);
+
+        Thread thread = new Thread(() -> {
+            context.close();
+            context = SpringApplication.run(SpringPluginsApplication.class, args.getSourceArgs());
+        });
+
+        thread.setDaemon(false);
+        thread.start();
     }
 
 }
