@@ -27,7 +27,7 @@ public class UploadPluginController {
     @PostMapping("/upload")
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
-        File targetFile = new File("plugins" + File.separator + file.getOriginalFilename());
+        File targetFile = new File("app/plugins" + File.separator + file.getOriginalFilename());
         OutputStream fileOutputStream = new FileOutputStream(targetFile);
 
         FileCopyUtils.copy(file.getInputStream(), fileOutputStream);
@@ -44,7 +44,7 @@ public class UploadPluginController {
     @GetMapping("/list")
     @ResponseBody
     public List<String> listPlugins() {
-        return Arrays.stream(Objects.requireNonNull(new File("plugins").listFiles())).map(File::getName).collect(Collectors.toList());
+        return Arrays.stream(Objects.requireNonNull(new File("app/plugins").listFiles())).map(File::getName).collect(Collectors.toList());
     }
 
 }

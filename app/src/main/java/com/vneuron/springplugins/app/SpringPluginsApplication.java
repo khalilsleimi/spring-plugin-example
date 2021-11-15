@@ -12,7 +12,9 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.plugin.core.config.EnablePluginRegistries;
 
-@SpringBootApplication
+import java.util.Optional;
+
+@SpringBootApplication(scanBasePackages = {"com.vneuron.springplugins"})
 @EnablePluginRegistries(WriterPlugin.class)
 public class SpringPluginsApplication {
 
@@ -28,8 +30,12 @@ public class SpringPluginsApplication {
     @Bean
     ApplicationRunner runner(PluginRegistry <WriterPlugin, String> plugins) {
         return args -> {
-            for (var format : "csv,txt".split(","))
-                plugins.getPluginFor(format).get().write("Hello, Spring Plugin!");
+            for (var format : "csv,txt,jar".split(",")) {
+                Optional<WriterPlugin> plugin = plugins.getPluginFor(format);
+                if (plugin.isPresent()) {
+                    plugin.get().write("Hello, Spring Plugin!");
+                }
+            }
         };
     }
 

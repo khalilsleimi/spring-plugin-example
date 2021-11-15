@@ -14,6 +14,6 @@ public class JarWriter implements WriterPlugin {
 
     @Override
     public boolean supports(String s) {
-        return s.equalsIgnoreCase("txt");
+        return s.equalsIgnoreCase("jar");
     }
 }
