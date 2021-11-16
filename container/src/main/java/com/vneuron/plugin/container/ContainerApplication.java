@@ -1,6 +1,6 @@
 package com.vneuron.plugin.container;
 
-import com.vneuron.plugin.spi.PluginInterface;
+import com.vneuron.plugin.PluginInterface;
 import org.pf4j.spring.SpringPluginManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

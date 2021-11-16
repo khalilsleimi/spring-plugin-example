@@ -1,4 +1,4 @@
-package com.vneuron.plugin.spi;
+package com.vneuron.plugin;
 
 import org.pf4j.ExtensionPoint;
 

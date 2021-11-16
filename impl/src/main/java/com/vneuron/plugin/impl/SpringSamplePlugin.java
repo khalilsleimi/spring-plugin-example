@@ -1,6 +1,6 @@
 package com.vneuron.plugin.impl;
 
-import com.vneuron.plugin.spi.PluginInterface;
+import com.vneuron.plugin.PluginInterface;
 import org.pf4j.Extension;
 import org.pf4j.PluginWrapper;
 import org.pf4j.spring.SpringPlugin;
@@ -42,7 +42,8 @@ public class SpringSamplePlugin extends SpringPlugin {
     protected ApplicationContext createApplicationContext() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.setClassLoader(getWrapper().getPluginClassLoader());
-        applicationContext.register(ImplPluginTestApplication.class);
+        // This is my mistake (used to run the test application within the plugin, should've run registered the ApplicationConfiguration
+        applicationContext.register(ApplicationConfiguration.class);
         applicationContext.refresh();
         return applicationContext;
     }

@@ -1,8 +1,9 @@
 package com.vneuron.plugin.container;
 
+import com.vneuron.plugin.PluginInterface;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vneuron.plugin.spi.PluginInterface;
 import org.pf4j.PluginManager;
 import org.pf4j.spring.SpringPluginManager;
 import org.springframework.beans.BeansException;
