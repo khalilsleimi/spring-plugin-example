@@ -1,0 +1,3 @@
+META-INF/extensions.idx
+com/vneuron/plugin/library/SimplePlugin.class
+com/vneuron/plugin/library/SimplePlugin$SimpleIdentityPlugin.class

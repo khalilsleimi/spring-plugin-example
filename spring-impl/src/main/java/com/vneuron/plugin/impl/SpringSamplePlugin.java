@@ -48,14 +48,11 @@ public class SpringSamplePlugin extends SpringPlugin {
         return applicationContext;
     }
 
-
     @Extension(ordinal = 1)
     public static class SpringPlugin implements PluginInterface {
 
         @Autowired
         private GreetProvider greetProvider;
-
-
 
         @Override
         public String identify() {
@@ -76,9 +73,5 @@ public class SpringSamplePlugin extends SpringPlugin {
                         req -> ServerResponse.ok().body(Mono.just("reactive router endpoint"), String.class)));
             }};
         }
-
-
     }
-
-
 }

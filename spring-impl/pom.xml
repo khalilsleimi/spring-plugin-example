@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <plugin.id>vneuron-sample-plugin</plugin.id>
+        <plugin.id>vneuron-spring-plugin</plugin.id>
         <plugin.class>com.vneuron.plugin.impl.SpringSamplePlugin</plugin.class>
         <plugin.version>0.0.1</plugin.version>
         <plugin.provider>Khalil SLEIMI</plugin.provider>

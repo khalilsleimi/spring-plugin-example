@@ -30,6 +30,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class PluginConfig implements BeanFactoryAware {
 
+
     private final SpringPluginManager pluginManager;
     private final ApplicationContext applicationContext;
     private final ObjectMapper objectMapper;
@@ -80,6 +81,7 @@ public class PluginConfig implements BeanFactoryAware {
         }
     }
 
+
     private void registerMvcEndpoints(PluginManager pm) {
         pm.getExtensions(PluginInterface.class).stream()
                 .flatMap(g -> g.mvcControllers().stream())
@@ -95,4 +97,5 @@ public class PluginConfig implements BeanFactoryAware {
     public void cleanup() {
         pluginManager.stopPlugins();
     }
+
 }

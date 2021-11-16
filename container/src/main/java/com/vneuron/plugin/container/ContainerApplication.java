@@ -23,9 +23,6 @@ public class ContainerApplication {
     }
 
     @Bean
-    /**
-     * Executed at the ContainerApplication startup, at the end of SpringApplication#run
-     */
     public ApplicationRunner run() {
         return new ApplicationRunner() {
 
@@ -34,7 +31,6 @@ public class ContainerApplication {
 
             @Override
             public void run(ApplicationArguments args) throws Exception {
-                // Find all extensions (pf4j magic, I really don't understand how it's done thus don't know how I can influence it)
                 List<PluginInterface> plugins = springPluginManager.getExtensions(PluginInterface.class);
                 log.info(String.format("Number of plugins found: %d", plugins.size()));
                 plugins.forEach(c -> log.info(c.getClass().getName() + ":" + c.identify()));
