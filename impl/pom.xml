@@ -18,7 +18,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <plugin.id>spring-hello-plugin</plugin.id>
-        <plugin.class>com.vneuron.plugin.impl.ImplPluginTestApplication</plugin.class>
+        <plugin.class>com.vneuron.plugin.impl.SpringSamplePlugin</plugin.class>
         <plugin.version>0.0.1</plugin.version>
         <plugin.provider>Khalil SLEIMI</plugin.provider>
         <plugin.dependencies/>
